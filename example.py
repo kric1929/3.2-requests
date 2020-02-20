@@ -17,7 +17,7 @@ def translate_it(path_file_text, path_file_result, from_lang, to_lang):
     :return:
     """
 
-    with open(path_file_text) as f:
+    with open(path_file_text, encoding='utf-8') as f:
         text = f.read()
 
     params = {
@@ -29,7 +29,7 @@ def translate_it(path_file_text, path_file_result, from_lang, to_lang):
     response = requests.get(URL, params=params)
     json_ = response.json()
 
-    with open(path_file_result, 'w') as f:
+    with open(path_file_result, 'w', encoding='utf-8') as f:
         f.write(json_['text'][0])
 
 
